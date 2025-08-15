@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  api:
+    build: ./api
+    container_name: person-osint-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/data
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DATA_DIR=/data
+      - CORS_ORIGINS=http://localhost:5173
+      - JWT_SECRET=changeme-supersecret
+      - USERS_JSON=[{"username":"admin","password":"admin123","role":"admin"},{"username":"analyst","password":"analyst123","role":"analyst"},{"username":"viewer","password":"viewer123","role":"viewer"}]
+      - RATELIMIT_PER_MIN=60
+      # - HIBP_API_KEY=your_hibp_key
+      # - HUNTER_API_KEY=your_hunter_key
+      # - CLEARBIT_API_KEY=your_clearbit_key
+      # - NUMVERIFY_API_KEY=your_numverify_key
+      # - GOOGLE_API_KEY=your_google_api_key
+      # - GOOGLECSE_CX=your_cse_id
+    restart: unless-stopped
+
+  web:
+    build: ./web
+    container_name: person-osint-web
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_BASE=http://localhost:8000
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  phoneinfoga:
+    image: sundowndev/phoneinfoga:latest
+    container_name: phoneinfoga
+    command: ["serve"]
+    ports:
+      - "8080:5000"
+    restart: unless-stopped

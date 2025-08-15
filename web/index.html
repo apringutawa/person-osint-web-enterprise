@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Person OSINT Web Enterprise</title>
+    <style>
+      :root{--bg:#0f172a;--card:#111827;--muted:#94a3b8;--ax:#22d3ee;--ok:#10b981;--bad:#ef4444}
+      *{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#0b1220,#0f172a);color:#e5e7eb;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+      a{color:var(--ax)} .wrap{max-width:1100px;margin:40px auto;padding:20px}
+      .title{font-size:28px;font-weight:800;letter-spacing:.3px;display:flex;gap:12px;align-items:center}
+      .subtitle{color:var(--muted);margin-top:4px;margin-bottom:18px}
+      .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px} @media (max-width:900px){.grid{grid-template-columns:1fr}}
+      .card{background:rgba(17,24,39,.6);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,.06);padding:16px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+      .card h3{margin:0 0 8px 0;font-size:18px}
+      label{display:block;color:#cbd5e1;margin-bottom:6px}
+      input[type=text],input[type=email],input[type=url],input[type=password]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0b1220;color:#e5e7eb}
+      input[type=file]{color:#cbd5e1}
+      button{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#1f2937;color:#e5e7eb;cursor:pointer}
+      button.primary{background:linear-gradient(90deg,#22d3ee,#38bdf8);color:#0b1220;font-weight:700;border:none}
+      .row{display:flex;gap:8px;align-items:center;margin-top:10px}
+      .muted{color:var(--muted);font-size:12px}
+      .out{white-space:pre-wrap;background:#020617;border:1px solid rgba(255,255,255,.06);padding:10px;border-radius:12px;max-height:220px;overflow:auto}
+      .kpi{display:flex;gap:12px;margin-top:12px}
+      .pill{padding:6px 10px;border-radius:999px;background:#0b1220;border:1px solid rgba(255,255,255,.1);font-size:12px;color:#cbd5e1}
+      .links a{display:inline-block;margin-right:10px}
+      .footer{margin-top:24px;color:#94a3b8;font-size:12px}
+      .ok{color:var(--ok)} .fail{color:var(--bad)}
+      .bar{display:flex;gap:10px;align-items:center;margin:10px 0; flex-wrap: wrap}
+      .bar input{max-width:260px}
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
